@@ -1,13 +1,12 @@
 angular.module('friendsApp')
 	.controller("friendCtrl", function($scope) {
 	
+	//tells ng-model with same name to select '-' as display/1st search option
+	$scope.sortBy = '+';  
 	
-//	$scope.searchAttribute = 'name'; 
-	
-	
-//	$scope.sortDirection = '+';
-	
-	
+	//checks to see if sorting by descending if true sort by descending order else sort by ascending order
+	//used in <li class='friend' ng-repeat="friend in friends | filter: friendFilter | orderBy: searchAttribute.value : sortBy">
+	//orderBy : expression(function, string array are all okay) : reverse(boolean only)
 	$scope.checkSort = function() {
 		if($scope.sortBy === "+") {
 			return true;
@@ -16,8 +15,18 @@ angular.module('friendsApp')
 		}
 	}
 	
-	$scope.sortOptions = [{name: 'Name', value: 'name'}, {name: '#Friends', value: 'friend_count'}, {name: 'City', value: 'current_location.city'}, {name: 'State', value: 'current_location.state'}, {name: 'Country', value: 'current_location.country'}]
 	
+	//sort options used in ng-options
+	$scope.sortOptions = [
+		{name: 'Name', value: 'name'}, 
+		{name: '#Friends', value: 'friend_count'}, 
+		{name: 'City', value: 'current_location.city'}, 
+		{name: 'State', value: 'current_location.state'}, 
+		{name: 'Country', value: 'current_location.country'}
+	]
+	
+	//tells ng-model with same name to select the name value as display/1st search option
+	$scope.searchAttribute = $scope.sortOptions[0];  
 	
 	
 	$scope.friends = [

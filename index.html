@@ -21,7 +21,7 @@
         <input class="form-control" placeholder="Search Location" ng-model='friendFilter.current_location.name'>
          
 
-        <select class="input-medium" ng-model="sortProperties" ng-options="option.name for option in sortOptions">
+		  <select class="input-medium" ng-model="searchAttribute" ng-options="option.name for option in sortOptions">
           
         </select>
 
@@ -34,7 +34,7 @@
     </form>
 
     <ul>
-      <li class='friend' ng-repeat="friend in friends | filter: friendFilter | orderBy: sortProperties.value : checkSort()">
+		<li class='friend' ng-repeat="friend in friends | filter: friendFilter | orderBy: searchAttribute.value : sortBy">
         <img class="profile-pic" ng-src='{{friend.pic_square}}'
 
         <h3>{{friend.name}}</h3>
