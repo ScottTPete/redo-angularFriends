@@ -6,7 +6,7 @@ angular.module('friendsApp')
 	
 	//checks to see if sorting by descending if true sort by descending order else sort by ascending order
 	//used in <li class='friend' ng-repeat="friend in friends | filter: friendFilter | orderBy: searchAttribute.value : sortBy">
-	//orderBy : expression(function, string array are all okay) : reverse(boolean only)
+	//orderBy : expression(function, string, array are all okay) : reverse(boolean only)
 	$scope.checkSort = function() {
 		if($scope.sortBy === "+") {
 			return true;
